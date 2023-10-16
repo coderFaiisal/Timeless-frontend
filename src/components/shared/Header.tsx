@@ -29,7 +29,7 @@ import {
   Avatar,
   Input,
 } from "@material-tailwind/react";
-import { HiChevronDown } from "react-icons/hi2";
+import { HiChevronDown, HiOutlineQueueList } from "react-icons/hi2";
 import {
   BsFillCpuFill,
   BsFillMotherboardFill,
@@ -65,57 +65,57 @@ const colors = {
 const navListMenuItems = [
   {
     color: "blue",
-    name: "Processor",
-    link: "/categories/Processor",
+    name: "dummy",
+    link: "",
     icon: BsFillCpuFill,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "pink",
-    name: "Monitor",
-    link: "/categories/Monitor",
+    name: "dummy",
+    link: "",
     icon: FiMonitor,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "green",
-    name: "Motherboard",
-    link: "/categories/Motherboard",
+    name: "dummy",
+    link: "",
     icon: BsFillMotherboardFill,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "teal",
-    name: "Graphics Card",
-    link: "/categories/Graphics Card",
+    name: "dummy",
+    link: "",
     icon: LuHardDrive,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "orange",
-    name: "RAM",
-    link: "/categories/RAM",
+    name: "dummy",
+    link: "",
     icon: CgSmartphoneRam,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "cyan",
-    name: "Storage Device",
-    link: "/categories/Storage Device",
+    name: "dummy",
+    link: "",
     icon: BsBuildingAdd,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "red",
-    name: "Power Supply Unit",
-    link: "/categories/Power Supply Unit",
+    name: "dummy",
+    link: "",
     icon: ImPower,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "purple",
-    name: "Others",
-    link: "/categories/Others",
+    name: "dummy",
+    link: "",
     icon: MdOutlineDevicesOther,
     description: "Learn about our story and our mission statement.",
   },
@@ -202,6 +202,13 @@ function NavListMenu() {
 function NavList() {
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
+      <Link href="/allProducts">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
+          <HiOutlineQueueList className="h-[18px] w-[18px]" />
+          SHOP
+        </ListItem>
+      </Link>
+
       <Link href="/">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
           <GiJewelCrown className="h-[18px] w-[18px]" />
@@ -221,13 +228,6 @@ function NavList() {
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
           <PiGiftThin className="h-[18px] w-[18px]" />
           GIFTS
-        </ListItem>
-      </Link>
-
-      <Link href="/marketPlace">
-        <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
-          <GiPerfumeBottle className="h-[18px] w-[18px]" />
-          FRAGRANCE
         </ListItem>
       </Link>
     </List>
