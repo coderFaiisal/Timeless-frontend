@@ -1,14 +1,23 @@
 "use client";
-
-import { HiBell } from "react-icons/hi";
-import { HiCog6Tooth } from "react-icons/hi2";
+import {
+  GiBigDiamondRing,
+  GiJewelCrown,
+  GiPerfumeBottle,
+} from "react-icons/gi";
+import {
+  PiShoppingCartThin,
+  PiGiftThin,
+  PiHeartStraightLight,
+} from "react-icons/pi";
+import { BsSearch } from "react-icons/bs";
 import React from "react";
 import logo from "../../../public/logo.png";
 import {
+  Dialog,
+  DialogBody,
   Navbar,
   Collapse,
   Typography,
-  Input,
   Button,
   IconButton,
   List,
@@ -18,22 +27,21 @@ import {
   MenuList,
   MenuItem,
   Avatar,
+  Input,
 } from "@material-tailwind/react";
-import { HiChevronDown, HiSquare3Stack3D, HiMiniHome } from "react-icons/hi2";
-// import Image from "next/image";
+import { HiChevronDown } from "react-icons/hi2";
 import {
   BsFillCpuFill,
   BsFillMotherboardFill,
   BsBuildingAdd,
 } from "react-icons/bs";
-import { IoCubeSharp } from "react-icons/io5";
+import { IoWatchOutline } from "react-icons/io5";
 import {
   AiOutlineUser,
   AiOutlineSetting,
   AiOutlinePoweroff,
 } from "react-icons/ai";
 import { CgSmartphoneRam } from "react-icons/cg";
-import { SiCoinmarketcap } from "react-icons/si";
 import { ImPower } from "react-icons/im";
 import { FiMonitor } from "react-icons/fi";
 import { MdOutlineDevicesOther } from "react-icons/md";
@@ -163,8 +171,8 @@ function NavListMenu() {
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              <HiSquare3Stack3D className="h-[18px] w-[18px]" />
-              Categories
+              <GiBigDiamondRing className="h-[18px] w-[18px]" />
+              LOVE & ENGAGEMENT
               <HiChevronDown
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -196,8 +204,8 @@ function NavList() {
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Link href="/">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
-          <HiMiniHome className="h-[18px] w-[18px]" />
-          Home
+          <GiJewelCrown className="h-[18px] w-[18px]" />
+          JEWELLERY
         </ListItem>
       </Link>
 
@@ -205,15 +213,21 @@ function NavList() {
 
       <Link href="/products">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
-          <IoCubeSharp className="h-[18px] w-[18px]" />
-          Products
+          <IoWatchOutline className="h-[18px] w-[18px]" />
+          WATCHES
+        </ListItem>
+      </Link>
+      <Link href="/products">
+        <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
+          <PiGiftThin className="h-[18px] w-[18px]" />
+          GIFTS
         </ListItem>
       </Link>
 
       <Link href="/marketPlace">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
-          <SiCoinmarketcap className="h-[18px] w-[18px]" />
-          Marketplace
+          <GiPerfumeBottle className="h-[18px] w-[18px]" />
+          FRAGRANCE
         </ListItem>
       </Link>
     </List>
@@ -286,6 +300,10 @@ export function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const { data: session } = useSession();
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => setOpen(!open);
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -294,37 +312,53 @@ export function Header() {
   }, []);
 
   return (
-    <Navbar className="mx-auto px-4 py-2 rounded-none w-full">
+    <Navbar className="mx-auto px-4 py-2 rounded-none w-full shadow-none">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Link href="/">
-          <Image src={logo} alt="logo" width={80} />
+          <Image
+            src={logo}
+            alt="logo"
+            width={80}
+            className="ml-2 md:ml-6 lg:ml-10"
+          />
         </Link>
         <div className="hidden lg:block">
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex items-center">
           {/*  */}
+
           <div className="ml-auto flex gap-1 md:mr-4">
             <IconButton variant="text" color="blue-gray">
-              <HiCog6Tooth className="h-4 w-4" />
+              <BsSearch onClick={handleOpen} className="h-6 w-6" />
+              <Dialog size="xs" open={open} handler={handleOpen}>
+                <DialogBody>
+                  <div className="relative flex w-full gap-2">
+                    <Input
+                      type="search"
+                      label="Type here.."
+                      className="pr-20"
+                      containerProps={{
+                        className: "w-full",
+                      }}
+                      crossOrigin={undefined}
+                    />
+                    <Button
+                      size="sm"
+                      className="!absolute right-1 top-1 rounded"
+                    >
+                      Search
+                    </Button>
+                  </div>
+                </DialogBody>
+              </Dialog>
             </IconButton>
             <IconButton variant="text" color="blue-gray">
-              <HiBell className="h-4 w-4" />
+              <PiHeartStraightLight className="h-5 w-5" />
             </IconButton>
-          </div>
-          <div className="relative flex w-full gap-2 md:w-max">
-            <Input
-              type="search"
-              label="Type here..."
-              className="pr-20"
-              containerProps={{
-                className: "min-w-[288px]",
-              }}
-              crossOrigin={undefined}
-            />
-            <Button size="sm" className="!absolute right-1 top-1 rounded">
-              Search
-            </Button>
+            <IconButton variant="text" color="blue-gray">
+              <PiShoppingCartThin className="h-5 w-5" />
+            </IconButton>
           </div>
         </div>
         <div className="flex lg:hidden">
@@ -345,27 +379,17 @@ export function Header() {
       <Collapse open={openNav}>
         <NavList />
         {/*  */}
+
         <div className="ml-auto flex gap-1 md:mr-4">
           <IconButton variant="text" color="blue-gray">
-            <HiCog6Tooth className="h-4 w-4" />
+            <BsSearch className="h-5 w-5" />
           </IconButton>
           <IconButton variant="text" color="blue-gray">
-            <HiBell className="h-4 w-4" />
+            <PiHeartStraightLight className="h-5 w-5" />
           </IconButton>
-        </div>
-        <div className="relative flex w-full gap-2 md:w-max">
-          <Input
-            type="search"
-            label="Type here..."
-            className="pr-20"
-            containerProps={{
-              className: "min-w-[288px]",
-            }}
-            crossOrigin={undefined}
-          />
-          <Button size="sm" className="!absolute right-1 top-1 rounded">
-            Search
-          </Button>
+          <IconButton variant="text" color="blue-gray">
+            <PiShoppingCartThin className="h-5 w-5" />
+          </IconButton>
         </div>
       </Collapse>
     </Navbar>
