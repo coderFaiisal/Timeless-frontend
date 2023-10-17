@@ -43,12 +43,16 @@ const FeaturedContent = () => {
           <div className="">
             <Image src={content?.image} alt="feature image" />
           </div>
-          <div className="absolute right-5 top-10 z-50">
-            <h2 className=" font-semibold opacity-30">{content?.title}</h2>
-            <h1 className="text-xl py-2 font-semibold ">
+          <div className="absolute right-4 md:right-2 lg:right-5 top-10 z-50">
+            <h2 className="text-xs lg:text-md font-semibold opacity-30">
+              {content?.title}
+            </h2>
+            <h1 className="text-sm lg:text-xl py-2 font-semibold ">
               {content?.description}
             </h1>
-            <p className="text-lg text-center p-1 mt-6">Shop Now</p>
+            <p className="text-sm lg:text-lg text-center p-1 mt-2 lg:mt-6">
+              Shop Now
+            </p>
           </div>
         </div>
       ))}

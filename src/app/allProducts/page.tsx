@@ -2,64 +2,25 @@
 
 import Loader from "@/components/shared/Loader";
 import ProductCard from "@/components/ui/ProductCard";
+import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
 import { useState } from "react";
 import { AiOutlineArrowUp } from "react-icons/ai";
 
 const filtersData = [
   {
-    title: "Genre",
-    options: [
-      "Computer and Programming",
-      "Motivational",
-      "Self-Development",
-      "Fiction",
-      "Islamic",
-      "Fantasy romance",
-      "Science Fiction",
-      "Novels",
-      "Liberation War",
-      "Story",
-      "Romantic, Novels",
-      "Poetry",
-      "Essay",
-    ],
-  },
-  {
-    title: "Publication Year",
-    options: [
-      "2022",
-      "2018",
-      "2017",
-      "2016",
-      "2009",
-      "2008",
-      "1998",
-      "1995",
-      "1985",
-      "1976",
-      "1948",
-      "1935",
-      "1929",
-      "1922",
-      "1920",
-      "1903",
-      "1866",
-    ],
+    title: "title",
+    options: ["Neclaces", "Ring"],
   },
 ];
 
-export default function Books() {
+export default function Products() {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [genre, setGenre] = useState<string>("");
-  const [publicationYear, setPublicationYear] = useState<string>("");
-  const [isLoading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [title, setTitle] = useState<string>("");
 
-  //   const { data, isLoading } = useGetBooksQuery({
-  //     searchTerm,
-  //     genre,
-  //     publicationYear,
-  //   });
+  const { data, isLoading } = useGetAllProductsQuery({
+    searchTerm,
+    title,
+  });
 
   const debounce = <T extends (...args: any[]) => void>(
     fn: T,
@@ -92,7 +53,7 @@ export default function Books() {
               onChange={debounce(handleSearch, 300)}
               className="rounded-md w-full pl-9 py-1 border border-slate-200 hover:border-slate-300 focus:border-violet-300 focus:ring-violet-300"
               type="search"
-              placeholder="Search book"
+              placeholder="Search Products"
             />
             <button
               onClick={(e) => e.preventDefault()}
@@ -123,20 +84,12 @@ export default function Books() {
                     <li key={o}>
                       <label className="flex items-center cursor-pointer">
                         <input
-                          checked={
-                            (fd.title === "Genre" && genre === o) ||
-                            (fd.title === "Publication Year" &&
-                              publicationYear === o)
-                          }
+                          checked={fd.title === "title" && title === o}
                           onChange={(e) => {
                             if (e.target.checked) {
-                              fd.title === "Genre"
-                                ? setGenre(o)
-                                : setPublicationYear(o);
+                              fd.title === "title" ? setTitle(o) : "";
                             } else {
-                              fd.title === "Genre"
-                                ? setGenre("")
-                                : setPublicationYear("");
+                              fd.title === "title" ? setTitle("") : "";
                             }
                           }}
                           type="checkbox"
@@ -156,12 +109,12 @@ export default function Books() {
       </div>
       {data?.length === 0 ? (
         <p className="col-span-9 text-2xl my-32 font-semibold text-center">
-          There is no book. Please add new book
+          There is no Product!
         </p>
       ) : (
-        <div className="col-span-9 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20 xl:gap-10 2xl:gap-24 pb-20">
-          {data?.map((book: any) => (
-            <ProductCard key={book._id} />
+        <div className="col-span-9 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-4 2xl:gap-24 pb-20">
+          {data?.data?.map((product: any) => (
+            <ProductCard key={product?._id} product={product} />
           ))}
         </div>
       )}

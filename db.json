@@ -1,0 +1,677 @@
+[
+  {
+    "name": "Elegant Diamond Necklace",
+    "category": "Necklaces",
+    "productCode": "NEC1",
+    "description": "A stunning diamond necklace with intricate details.",
+    "photoURL": "https://i.ibb.co/YjVCCxP/necklace3.jpg",
+    "price": "100",
+    "status": "stock",
+    "stockQuantity": "10",
+    "materials": "18k White Gold, Diamonds",
+    "dimensions": "Chain Length: 18 inches, Pendant Width: 1 inch",
+    "metalType": "White Gold",
+    "discounts": "10%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Nazrul Ahmed",
+        "review": "Absolutely beautiful! I love it."
+      },
+      {
+        "userName": "Imdad Ovi",
+        "review": "Excellent quality and fast delivery."
+      }
+    ]
+  },
+  {
+    "name": "Glamorous Sapphire Earrings",
+    "category": "Earrings",
+    "productCode": "EAR2",
+    "description": "Exquisite sapphire earrings for a touch of elegance.",
+    "photoURL": "https://i.ibb.co/Jpr6rLn/earrings3.jpg",
+    "price": "120",
+    "status": "stock",
+    "stockQuantity": "15",
+    "materials": "14k Yellow Gold, Sapphires",
+    "dimensions": "Length: 1.5 inches, Width: 0.5 inch",
+    "metalType": "Yellow Gold",
+    "discounts": "15%",
+    "ratings": "4.5",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Sarah Smith",
+        "review": "Absolutely stunning! I'm in love with these earrings."
+      },
+      {
+        "userName": "Alex Johnson",
+        "review": "Great craftsmanship and beautiful stones."
+      }
+    ]
+  },
+  {
+    "name": "Classic Pearl Bracelet",
+    "category": "Bracelets",
+    "productCode": "BRA3",
+    "description": "A timeless pearl bracelet that complements any outfit.",
+    "photoURL": "https://i.ibb.co/L0KS5nv/bracelet1.jpg",
+    "price": "80",
+    "status": "stock",
+    "stockQuantity": "12",
+    "materials": "Sterling Silver, Freshwater Pearls",
+    "dimensions": "Length: 7 inches",
+    "metalType": "Silver",
+    "discounts": "8%",
+    "ratings": "4.7",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Emily Davis",
+        "review": "The pearls are exquisite! I wear it every day."
+      },
+      {
+        "userName": "Michael Brown",
+        "review": "Great value for such a high-quality bracelet."
+      }
+    ]
+  },
+  {
+    "name": "Chic Diamond Ring",
+    "category": "Rings",
+    "productCode": "RIN4",
+    "description": "A chic diamond ring that adds sparkle to any occasion.",
+    "photoURL": "https://i.ibb.co/G9qL5mS/ring8.jpg",
+    "price": "150",
+    "status": "stock",
+    "stockQuantity": "8",
+    "materials": "14k Rose Gold, Diamonds",
+    "dimensions": "Band Width: 2 mm",
+    "metalType": "Rose Gold",
+    "discounts": "12%",
+    "ratings": "4.9",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Sophia Williams",
+        "review": "Absolutely stunning! The diamonds sparkle beautifully."
+      },
+      {
+        "userName": "David Johnson",
+        "review": "My wife was thrilled with this ring. Thank you!"
+      }
+    ]
+  },
+  {
+    "name": "Opulent Emerald Necklace",
+    "category": "Necklaces",
+    "productCode": "NEC5",
+    "description": "An opulent emerald necklace fit for royalty.",
+    "photoURL": "https://i.ibb.co/sCfcLfF/necklace2.jpg",
+    "price": "200",
+    "status": "stock",
+    "stockQuantity": "5",
+    "materials": "18k Yellow Gold, Emeralds",
+    "dimensions": "Chain Length: 20 inches, Pendant Width: 1.5 inches",
+    "metalType": "Yellow Gold",
+    "discounts": "20%",
+    "ratings": "4.6",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Olivia Smith",
+        "review": "Absolutely breathtaking! The emeralds are stunning."
+      },
+      {
+        "userName": "Robert Davis",
+        "review": "An heirloom piece for sure. I'm in love!"
+      }
+    ]
+  },
+  {
+    "name": "Sleek Sapphire Bracelet",
+    "category": "Bracelets",
+    "productCode": "BRA6",
+    "description": "A sleek sapphire bracelet for a touch of sophistication.",
+    "photoURL": "https://i.ibb.co/sQvLyGX/bracelet4.jpg",
+    "price": "180",
+    "status": "stock",
+    "stockQuantity": "7",
+    "materials": "14k White Gold, Sapphires",
+    "dimensions": "Length: 6.5 inches",
+    "metalType": "White Gold",
+    "discounts": "18%",
+    "ratings": "4.7",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Ethan Johnson",
+        "review": "The sapphires are of exceptional quality."
+      },
+      {
+        "userName": "Ava Williams",
+        "review": "A beautiful addition to my collection."
+      }
+    ]
+  },
+  {
+    "name": "Timeless Ruby Ring",
+    "category": "Rings",
+    "productCode": "RIN7",
+    "description": "A timeless ruby ring that radiates passion and elegance.",
+    "photoURL": "https://i.ibb.co/Sxt5Vt0/ring2.jpg",
+    "price": "160",
+    "status": "stock",
+    "stockQuantity": "6",
+    "materials": "18k Rose Gold, Rubies",
+    "dimensions": "Band Width: 3 mm",
+    "metalType": "Rose Gold",
+    "discounts": "15%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Isabella Davis",
+        "review": "The ruby is vibrant and stunning!"
+      },
+      {
+        "userName": "Mason Johnson",
+        "review": "I can't stop staring at this ring. Love it!"
+      }
+    ]
+  },
+  {
+    "name": "Diamond Halo Earrings",
+    "category": "Earrings",
+    "productCode": "EAR8",
+    "description": "Exquisite diamond earrings with a captivating halo design.",
+    "photoURL": "https://i.ibb.co/fFLGMHr/earrings7.jpg",
+    "price": "220",
+    "status": "stock",
+    "stockQuantity": "9",
+    "materials": "18k White Gold, Diamonds",
+    "dimensions": "Length: 1.2 inches, Width: 0.7 inch",
+    "metalType": "White Gold",
+    "discounts": "20%",
+    "ratings": "4.9",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Sophia Johnson",
+        "review": "These earrings are simply breathtaking!"
+      },
+      {
+        "userName": "Lucas Davis",
+        "review": "The halo design is truly mesmerizing."
+      }
+    ]
+  },
+  {
+    "name": "Pearl Drop Necklace",
+    "category": "Necklaces",
+    "productCode": "NEC9",
+    "description": "A delicate pearl necklace with a timeless design.",
+    "photoURL": "https://i.ibb.co/QPTKW4y/necklace6.jpg",
+    "price": "90",
+    "status": "stock",
+    "stockQuantity": "11",
+    "materials": "Sterling Silver, Freshwater Pearls",
+    "dimensions": "Chain Length: 16 inches, Pendant Drop: 1 inch",
+    "metalType": "Silver",
+    "discounts": "10%",
+    "ratings": "4.6",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Emma Smith",
+        "review": "A classic piece that goes with everything."
+      },
+      {
+        "userName": "Noah Johnson",
+        "review": "The pearls have a beautiful luster."
+      }
+    ]
+  },
+  {
+    "name": "Emerald Stud Earrings",
+    "category": "Earrings",
+    "productCode": "EAR10",
+    "description": "Elegant emerald stud earrings for a touch of sophistication.",
+    "photoURL": "https://i.ibb.co/G07szND/earrings4.jpg",
+    "price": "150",
+    "status": "stock",
+    "stockQuantity": "10",
+    "materials": "14k Yellow Gold, Emeralds",
+    "dimensions": "Diameter: 0.25 inch",
+    "metalType": "Yellow Gold",
+    "discounts": "12%",
+    "ratings": "4.7",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Olivia Johnson",
+        "review": "The emeralds are simply stunning!"
+      },
+      {
+        "userName": "Ethan Davis",
+        "review": "Great quality and craftsmanship."
+      }
+    ]
+  },
+  {
+    "name": "Sapphire Tennis Bracelet",
+    "category": "Bracelets",
+    "productCode": "BRA11",
+    "description": "A dazzling sapphire tennis bracelet for a touch of glamour.",
+    "photoURL": "https://i.ibb.co/JBVy6RG/bracelet2.jpg",
+    "price": "250",
+    "status": "stock",
+    "stockQuantity": "6",
+    "materials": "18k White Gold, Sapphires",
+    "dimensions": "Length: 7.5 inches",
+    "metalType": "White Gold",
+    "discounts": "15%",
+    "ratings": "4.9",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Ava Johnson",
+        "review": "The sapphires are absolutely breathtaking!"
+      },
+      {
+        "userName": "Liam Smith",
+        "review": "A statement piece that catches the eye."
+      }
+    ]
+  },
+  {
+    "name": "Ruby Halo Ring",
+    "category": "Rings",
+    "productCode": "RIN12",
+    "description": "A captivating ruby halo ring that exudes elegance.",
+    "photoURL": "https://i.ibb.co/p4pM0CS/ring6.jpg",
+    "price": "180",
+    "status": "stock",
+    "stockQuantity": "9",
+    "materials": "14k Yellow Gold, Rubies",
+    "dimensions": "Band Width: 2.5 mm",
+    "metalType": "Yellow Gold",
+    "discounts": "10%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Isabella Johnson",
+        "review": "The ruby is stunning and the halo design is exquisite."
+      },
+      {
+        "userName": "Mason Davis",
+        "review": "I'm beyond thrilled with this ring!"
+      }
+    ]
+  },
+  {
+    "name": "Diamond Cluster Earrings",
+    "category": "Earrings",
+    "productCode": "EAR13",
+    "description": "Stunning diamond cluster earrings for a touch of glamour.",
+    "photoURL": "https://i.ibb.co/kQnWNvZ/earrings6.jpg",
+    "price": "220",
+    "status": "stock",
+    "stockQuantity": "8",
+    "materials": "18k White Gold, Diamonds",
+    "dimensions": "Length: 1 inch, Width: 0.8 inch",
+    "metalType": "White Gold",
+    "discounts": "12%",
+    "ratings": "4.7",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Sophia Davis",
+        "review": "These earrings are a showstopper!"
+      },
+      {
+        "userName": "Lucas Johnson",
+        "review": "The cluster design is truly unique."
+      }
+    ]
+  },
+  {
+    "name": "Pearl Stud Earrings",
+    "category": "Earrings",
+    "productCode": "EAR14",
+    "description": "Timeless pearl stud earrings for a touch of sophistication.",
+    "photoURL": "https://i.ibb.co/TmL2k5Z/earrings5.jpg",
+    "price": "90",
+    "status": "stock",
+    "stockQuantity": "11",
+    "materials": "14k White Gold, Freshwater Pearls",
+    "dimensions": "Diameter: 0.3 inch",
+    "metalType": "White Gold",
+    "discounts": "10%",
+    "ratings": "4.6",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Emma Johnson",
+        "review": "Elegant and perfect for any occasion."
+      },
+      {
+        "userName": "Noah Davis",
+        "review": "The pearls have a beautiful luster."
+      }
+    ]
+  },
+  {
+    "name": "Emerald Drop Earrings",
+    "category": "Earrings",
+    "productCode": "EAR15",
+    "description": "Exquisite emerald drop earrings for a touch of elegance.",
+    "photoURL": "https://i.ibb.co/G07szND/earrings4.jpg",
+    "price": "150",
+    "status": "stock",
+    "stockQuantity": "10",
+    "materials": "18k Yellow Gold, Emeralds",
+    "dimensions": "Length: 1 inch",
+    "metalType": "Yellow Gold",
+    "discounts": "12%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Olivia Davis",
+        "review": "The emeralds are of exceptional quality."
+      },
+      {
+        "userName": "Ethan Smith",
+        "review": "I'm thrilled with these earrings!"
+      }
+    ]
+  },
+  {
+    "name": "Sapphire Halo Ring",
+    "category": "Rings",
+    "productCode": "RIN16",
+    "description": "A captivating sapphire halo ring that exudes elegance.",
+    "photoURL": "https://i.ibb.co/G0pCfGD/ring7.jpg",
+    "price": "180",
+    "status": "stock",
+    "stockQuantity": "9",
+    "materials": "14k White Gold, Sapphires",
+    "dimensions": "Band Width: 2.5 mm",
+    "metalType": "White Gold",
+    "discounts": "10%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Isabella Davis",
+        "review": "The sapphire is stunning and the halo design is exquisite."
+      },
+      {
+        "userName": "Mason Johnson",
+        "review": "I'm beyond thrilled with this ring!"
+      }
+    ]
+  },
+  {
+    "name": "Diamond Tennis Bracelet",
+    "category": "Bracelets",
+    "productCode": "BRA17",
+    "description": "A classic diamond tennis bracelet for a touch of glamour.",
+    "photoURL": "https://i.ibb.co/sQvLyGX/bracelet4.jpg",
+    "price": "250",
+    "status": "stock",
+    "stockQuantity": "6",
+    "materials": "18k Yellow Gold, Diamonds",
+    "dimensions": "Length: 7 inches",
+    "metalType": "Yellow Gold",
+    "discounts": "15%",
+    "ratings": "4.9",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Ava Davis",
+        "review": "The diamonds are absolutely breathtaking!"
+      },
+      {
+        "userName": "Liam Johnson",
+        "review": "A statement piece that catches the eye."
+      }
+    ]
+  },
+  {
+    "name": "Ruby Stud Earrings",
+    "category": "Earrings",
+    "productCode": "EAR18",
+    "description": "Elegant ruby stud earrings for a touch of sophistication.",
+    "photoURL": "https://i.ibb.co/fFLGMHr/earrings7.jpg",
+    "price": "150",
+    "status": "stock",
+    "stockQuantity": "10",
+    "materials": "14k Rose Gold, Rubies",
+    "dimensions": "Diameter: 0.3 inch",
+    "metalType": "Rose Gold",
+    "discounts": "12%",
+    "ratings": "4.7",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Sophia Davis",
+        "review": "The rubies are simply stunning!"
+      },
+      {
+        "userName": "Lucas Smith",
+        "review": "Great quality and craftsmanship."
+      }
+    ]
+  },
+  {
+    "name": "Pearl Cluster Necklace",
+    "category": "Necklaces",
+    "productCode": "NEC19",
+    "description": "A cluster of pearls creates a stunning necklace.",
+    "photoURL": "https://i.ibb.co/dPXkpRz/necklace5.jpg",
+    "price": "90",
+    "status": "stock",
+    "stockQuantity": "11",
+    "materials": "18k White Gold, Freshwater Pearls",
+    "dimensions": "Chain Length: 18 inches",
+    "metalType": "White Gold",
+    "discounts": "10%",
+    "ratings": "4.6",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Emma Davis",
+        "review": "A timeless piece that stands out in any crowd."
+      },
+      {
+        "userName": "Noah Smith",
+        "review": "The pearls have a beautiful luster."
+      }
+    ]
+  },
+  {
+    "name": "Opulent Opal Ring",
+    "category": "Rings",
+    "productCode": "RIN20",
+    "description": "An opulent opal ring that shimmers with every movement.",
+    "photoURL": "https://i.ibb.co/Sxt5Vt0/ring2.jpg",
+    "price": "200",
+    "status": "stock",
+    "stockQuantity": "5",
+    "materials": "14k White Gold, Opals",
+    "dimensions": "Band Width: 2.2 mm",
+    "metalType": "White Gold",
+    "discounts": "20%",
+    "ratings": "4.6",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Olivia Smith",
+        "review": "The opals have a mesmerizing play of color!"
+      },
+      {
+        "userName": "Ethan Davis",
+        "review": "This ring is a true work of art."
+      }
+    ]
+  },
+  {
+    "name": "Diamond Solitaire Necklace",
+    "category": "Necklaces",
+    "productCode": "NEC21",
+    "description": "A classic diamond solitaire necklace that never goes out of style.",
+    "photoURL": "https://i.ibb.co/sCfcLfF/necklace2.jpg",
+    "price": "180",
+    "status": "stock",
+    "stockQuantity": "7",
+    "materials": "18k Yellow Gold, Diamond",
+    "dimensions": "Chain Length: 16 inches",
+    "metalType": "Yellow Gold",
+    "discounts": "10%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Isabella Smith",
+        "review": "A timeless piece that shines brilliantly."
+      },
+      {
+        "userName": "Mason Davis",
+        "review": "This necklace is simply exquisite."
+      }
+    ]
+  },
+  {
+    "name": "Sapphire Cluster Earrings",
+    "category": "Earrings",
+    "productCode": "EAR22",
+    "description": "Exquisite sapphire cluster earrings for a touch of glamour.",
+    "photoURL": "https://i.ibb.co/TmL2k5Z/earrings5.jpg",
+    "price": "220",
+    "status": "stock",
+    "stockQuantity": "8",
+    "materials": "14k White Gold, Sapphires",
+    "dimensions": "Length: 1.2 inches, Width: 0.8 inch",
+    "metalType": "White Gold",
+    "discounts": "12%",
+    "ratings": "4.9",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Sophia Davis",
+        "review": "These earrings are a work of art!"
+      },
+      {
+        "userName": "Lucas Smith",
+        "review": "The sapphires are of exceptional quality."
+      }
+    ]
+  },
+  {
+    "name": "Pearl Drop Earrings",
+    "category": "Earrings",
+    "productCode": "EAR23",
+    "description": "Delicate pearl drop earrings for a touch of elegance.",
+    "photoURL": "https://i.ibb.co/TmL2k5Z/earrings5.jpg",
+    "price": "150",
+    "status": "stock",
+    "stockQuantity": "6",
+    "materials": "18k Rose Gold, Freshwater Pearls",
+    "dimensions": "Length: 1.2 inches",
+    "metalType": "Rose Gold",
+    "discounts": "15%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Olivia Davis",
+        "review": "The pearls have a beautiful luster."
+      },
+      {
+        "userName": "Ethan Johnson",
+        "review": "I'm in love with these earrings!"
+      }
+    ]
+  },
+  {
+    "name": "Ruby Cluster Necklace",
+    "category": "Necklaces",
+    "productCode": "NEC24",
+    "description": "A cluster of rubies creates a stunning necklace.",
+    "photoURL": "https://i.ibb.co/mT7FpQK/necklace4.jpg",
+    "price": "180",
+    "status": "stock",
+    "stockQuantity": "9",
+    "materials": "14k Yellow Gold, Rubies",
+    "dimensions": "Chain Length: 18 inches",
+    "metalType": "Yellow Gold",
+    "discounts": "10%",
+    "ratings": "4.8",
+    "returnPolicy": "30",
+    "customizable": "Yes",
+    "reviews": [
+      {
+        "userName": "Isabella Johnson",
+        "review": "The rubies are absolutely breathtaking!"
+      },
+      {
+        "userName": "Mason Smith",
+        "review": "A true statement piece that catches the eye."
+      }
+    ]
+  },
+  {
+    "name": "Opal Stud Earrings",
+    "category": "Earrings",
+    "productCode": "EAR25",
+    "description": "Elegant opal stud earrings for a touch of sophistication.",
+    "photoURL": "https://i.ibb.co/fFLGMHr/earrings7.jpg",
+    "price": "150",
+    "status": "stock",
+    "stockQuantity": "7",
+    "materials": "18k White Gold, Opals",
+    "dimensions": "Diameter: 0.25 inch",
+    "metalType": "White Gold",
+    "discounts": "12%",
+    "ratings": "4.7",
+    "returnPolicy": "30",
+    "customizable": "No",
+    "reviews": [
+      {
+        "userName": "Sophia Johnson",
+        "review": "The opals are simply mesmerizing!"
+      },
+      {
+        "userName": "Lucas Davis",
+        "review": "Great quality and craftsmanship."
+      }
+    ]
+  }
+]

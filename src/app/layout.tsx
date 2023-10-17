@@ -6,6 +6,8 @@ import { getServerSession } from "next-auth";
 import SessionProvider from "@/lib/SessionProvider";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { Provider } from "react-redux";
+import store from "@/redux/store";
 
 const inter = Inter({ subsets: ["latin"] });
 

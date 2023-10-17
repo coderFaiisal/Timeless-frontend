@@ -15,6 +15,33 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const HomeBanner = () => {
+  const images = [
+    {
+      link: banner1,
+      name: "image1",
+    },
+    {
+      link: banner2,
+      name: "image2",
+    },
+    {
+      link: banner3,
+      name: "image3",
+    },
+    {
+      link: banner4,
+      name: "image4",
+    },
+    {
+      link: banner5,
+      name: "image5",
+    },
+    {
+      link: banner6,
+      name: "image6",
+    },
+  ];
+
   return (
     <Swiper
       slidesPerView={1}
@@ -24,26 +51,17 @@ const HomeBanner = () => {
         clickable: true,
       }}
       modules={[Pagination]}
-      className="mySwiper w-full h-screen"
+      className="mySwiper w-full h-80 lg:h-screen"
     >
-      <SwiperSlide>
-        <Image src={banner1} alt="banner image" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image src={banner2} alt="banner image" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image src={banner3} alt="banner image" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image src={banner4} alt="banner image" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image src={banner5} alt="banner image" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image src={banner6} alt="banner image" />
-      </SwiperSlide>
+      {images?.map((image) => (
+        <SwiperSlide key={image?.name}>
+          <Image
+            src={image?.link}
+            alt={image?.name}
+            className="w-full h-80 md:h-96 lg:h-screen"
+          />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

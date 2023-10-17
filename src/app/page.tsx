@@ -1,4 +1,3 @@
-"use client";
 import BlogPost from "@/components/ui/BlogPost";
 import FeaturedContent from "@/components/ui/FeaturedContent";
 import GoToTop from "@/components/ui/GoToTop";

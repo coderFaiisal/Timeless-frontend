@@ -12,7 +12,7 @@ import banner1 from "../../../public/banner-1.jpg";
 
 const Testimonial = () => {
   return (
-    <div className="bg-gray-100 h-96">
+    <div className="bg-gray-100 min-h-96">
       <div className="text-center pt-8">
         <h1 className=" text-3xl font-semibold"> Client Testimonials</h1>
         <p>What they say</p>

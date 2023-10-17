@@ -28,7 +28,7 @@ const BlogPost = () => {
   ];
 
   return (
-    <div className=" h-96 mb-20">
+    <div className=" min-h-96 mb-8 lg:mb-20">
       <div className="text-center pt-8">
         <h1 className="text-3xl font-semibold">From Our Blog</h1>
         <p className="text-sm opacity-60">There are latest blog posts</p>
