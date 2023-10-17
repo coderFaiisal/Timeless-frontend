@@ -41,7 +41,7 @@ const FeaturedContent = () => {
       {contents.map((content) => (
         <div key={content?.title} className="relative">
           <div className="">
-            <Image src={content?.image} alt="feature image" />
+            <Image src={content?.image} alt="feature image" width={500} height={500} />
           </div>
           <div className="absolute right-4 md:right-2 lg:right-5 top-10 z-50">
             <h2 className="text-xs lg:text-md font-semibold opacity-30">

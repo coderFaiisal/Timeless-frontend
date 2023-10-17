@@ -3,23 +3,73 @@
 import Loader from "@/components/shared/Loader";
 import ProductCard from "@/components/ui/ProductCard";
 import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
+import {
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
+} from "@material-tailwind/react";
 import { useState } from "react";
-import { AiOutlineArrowUp } from "react-icons/ai";
+
+import { BiLeftArrow } from "react-icons/bi";
 
 const filtersData = [
   {
-    title: "title",
-    options: ["Neclaces", "Ring"],
+    id: 1,
+    title: "Genre",
+    options: [
+      "Computer and Programming",
+      "Motivational",
+      "Self-Development",
+      "Fiction",
+      "Islamic",
+      "Fantasy romance",
+      "Science Fiction",
+      "Novels",
+      "Liberation War",
+      "Story",
+      "Romantic, Novels",
+      "Poetry",
+      "Essay",
+    ],
+  },
+  {
+    id: 2,
+    title: "Publication Year",
+    options: [
+      "2022",
+      "2018",
+      "2017",
+      "2016",
+      "2009",
+      "2008",
+      "1998",
+      "1995",
+      "1985",
+      "1976",
+      "1948",
+      "1935",
+      "1929",
+      "1922",
+      "1920",
+      "1903",
+      "1866",
+    ],
   },
 ];
 
 export default function Products() {
+  const [open, setOpen] = useState(0);
+
+  const handleOpen = (value: any) => setOpen(open === value ? 0 : value);
+
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [title, setTitle] = useState<string>("");
+  const [genre, setGenre] = useState<string>("");
+  const [publicationYear, setPublicationYear] = useState<string>("");
 
   const { data, isLoading } = useGetAllProductsQuery({
     searchTerm,
-    title,
+    genre,
+    publicationYear,
   });
 
   const debounce = <T extends (...args: any[]) => void>(
@@ -34,6 +84,27 @@ export default function Products() {
       }, delay);
     };
   };
+
+  function Icon({ id, open }: any) {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className={`${
+          id === open ? "rotate-180" : ""
+        } h-5 w-5 transition-transform`}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+        />
+      </svg>
+    );
+  }
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -51,7 +122,7 @@ export default function Products() {
           <form className="relative">
             <input
               onChange={debounce(handleSearch, 300)}
-              className="rounded-md w-full pl-9 py-1 border border-slate-200 hover:border-slate-300 focus:border-violet-300 focus:ring-violet-300"
+              className="rounded-md w-full pl-9 p-1 border border-gray-200 hover:border-gray-300 focus:border-blue-300 focus:ring-blue-300 outline-none"
               type="search"
               placeholder="Search Products"
             />
@@ -62,7 +133,7 @@ export default function Products() {
               aria-label="Search"
             >
               <svg
-                className="w-4 h-4 shrink-0 fill-current text-slate-400 group-hover:text-slate-600 ml-3 mr-2"
+                className="w-4 h-4 shrink-0 fill-current text-slate-400 text-indigo-500 group-hover:text-gray-600 ml-3 mr-2"
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -76,33 +147,53 @@ export default function Products() {
         {/* Filters */}
         <div className="">
           <h1 className="text-xl uppercase">Filters</h1>
-          <div className="mt-3 space-y-2 max-h-[calc(100vh-229px)] overflow-auto scrollbar-none">
+          <div className="mt-3 space-y-2 max-h-[calc(100vh-229px)] overflow-auto  scrollbar-hide">
             {filtersData.map((fd) => (
-              <AiOutlineArrowUp key={fd.title} title={fd.title}>
-                <ul className="space-y-2">
-                  {fd.options.map((o) => (
-                    <li key={o}>
-                      <label className="flex items-center cursor-pointer">
-                        <input
-                          checked={fd.title === "title" && title === o}
-                          onChange={(e) => {
-                            if (e.target.checked) {
-                              fd.title === "title" ? setTitle(o) : "";
-                            } else {
-                              fd.title === "title" ? setTitle("") : "";
+              <Accordion
+                open={open === fd.id}
+                icon={<Icon id={fd.id} open={open} />}
+                key={fd.title}
+              >
+                <AccordionHeader
+                  className="text-md font-medium"
+                  onClick={() => handleOpen(fd.id)}
+                >
+                  {fd.title}
+                </AccordionHeader>
+                <AccordionBody className="">
+                  <ul className="space-y-2">
+                    {fd.options.map((o) => (
+                      <li key={o}>
+                        <label className="flex items-center cursor-pointer">
+                          <input
+                            checked={
+                              (fd.title === "Genre" && genre === o) ||
+                              (fd.title === "Publication Year" &&
+                                publicationYear === o)
                             }
-                          }}
-                          type="checkbox"
-                          className="h-4 w-4 border border-gray-500 rounded text-violet-500 focus:ring-transparent cursor-pointer"
-                        />
-                        <span className="text-sm text-slate-600 font-medium ml-2">
-                          {o}
-                        </span>
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              </AiOutlineArrowUp>
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                fd.title === "Genre"
+                                  ? setGenre(o)
+                                  : setPublicationYear(o);
+                              } else {
+                                fd.title === "Genre"
+                                  ? setGenre("")
+                                  : setPublicationYear("");
+                              }
+                            }}
+                            type="checkbox"
+                            className="h-4 w-4 border border-gray-500 rounded text-violet-500 focus:ring-transparent cursor-pointer"
+                          />
+                          <span className="text-sm text-slate-600 font-medium ml-2">
+                            {o}
+                          </span>
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                </AccordionBody>
+              </Accordion>
             ))}
           </div>
         </div>

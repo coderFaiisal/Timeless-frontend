@@ -50,6 +50,8 @@ const NewArrival = () => {
                 src={product?.image}
                 alt="feature image"
                 className="w-full h-60 lg:h-56"
+                width={500}
+                height={500}
               />
             </div>
             <div className="mt-2 text-center">

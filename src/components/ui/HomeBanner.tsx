@@ -59,6 +59,8 @@ const HomeBanner = () => {
             src={image?.link}
             alt={image?.name}
             className="w-full h-80 md:h-96 lg:h-screen"
+            width={500}
+            height={500}
           />
         </SwiperSlide>
       ))}

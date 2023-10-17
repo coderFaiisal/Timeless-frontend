@@ -34,6 +34,8 @@ const Testimonial = () => {
               src={banner1}
               alt="banner image"
               className="rounded-full w-28 h-28"
+              width={500}
+              height={500}
             />
             <div className="text-center pt-8 ">
               <p className=" w-3/4 mx-auto mb-4">
@@ -53,6 +55,8 @@ const Testimonial = () => {
               src={banner1}
               alt="banner image"
               className="rounded-full w-28 h-28"
+              width={500}
+              height={500}
             />
             <div className="text-center pt-8 ">
               <p className=" w-3/4 mx-auto mb-4">
@@ -72,6 +76,8 @@ const Testimonial = () => {
               src={banner1}
               alt="banner image"
               className="rounded-full w-28 h-28"
+              width={500}
+              height={500}
             />
             <div className="text-center pt-8 ">
               <p className=" w-3/4 mx-auto mb-4">
@@ -91,6 +97,8 @@ const Testimonial = () => {
               src={banner1}
               alt="banner image"
               className="rounded-full w-28 h-28"
+              width={500}
+              height={500}
             />
             <div className="text-center pt-8 ">
               <p className=" w-3/4 mx-auto mb-4">
@@ -110,6 +118,8 @@ const Testimonial = () => {
               src={banner1}
               alt="banner image"
               className="rounded-full w-28 h-28"
+              width={500}
+              height={500}
             />
             <div className="text-center pt-8 ">
               <p className=" w-3/4 mx-auto mb-4">
@@ -129,6 +139,8 @@ const Testimonial = () => {
               src={banner1}
               alt="banner image"
               className="rounded-full w-28 h-28"
+              width={500}
+              height={500}
             />
             <div className="text-center pt-8 ">
               <p className=" w-3/4 mx-auto mb-4">

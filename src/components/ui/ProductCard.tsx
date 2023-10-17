@@ -54,15 +54,15 @@ const ProductCard = ({ product }: any) => {
     <div className={`card bg-base-100 shadow-xl cursor-pointer relative`}>
       <figure>
         <Image
-          className="w-full"
-          src={product?.images}
+          className="w-full h-72"
+          src={product?.photoURL}
           alt="Product Image"
           width={500}
           height={500}
         />
       </figure>
       <div className="card-body p-2">
-        <h2 className="card-title text-2xl">{product?.title}</h2>
+        <h2 className="card-title text-2xl">{product?.name}</h2>
         <p>Price: ${product?.price}</p>
 
         <div className="absolute top-2 right-2">

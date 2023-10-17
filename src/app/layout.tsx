@@ -6,6 +6,9 @@ import { getServerSession } from "next-auth";
 import SessionProvider from "@/lib/SessionProvider";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +26,16 @@ export default async function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body className={`${inter.className} max-w-7xl mx-auto`}>
+        <body className={`${inter.className}  scrollbar-hide`}>
           <SessionProvider session={session}>
             <Header />
-            {children}
+            <div className="max-w-7xl mx-auto">{children}</div>
             <Footer />
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              theme="colored"
+            />
           </SessionProvider>
         </body>
       </html>

@@ -19,7 +19,7 @@ const TopProducts = async () => {
           <div key={product?._id}>
             <div className="">
               <Image
-                src={product?.images}
+                src={product?.photoURL}
                 alt="feature image"
                 className="h-40 lg:h-56"
                 width={500}
@@ -27,7 +27,7 @@ const TopProducts = async () => {
               />
             </div>
             <div className="mt-2 text-center">
-              <h1 className="text-sm opacity-60">{product?.title}</h1>
+              <h1 className="text-sm opacity-60">{product?.name}</h1>
               <p>$ {product?.price}</p>
             </div>
           </div>
