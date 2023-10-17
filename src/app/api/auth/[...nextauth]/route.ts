@@ -17,7 +17,7 @@ export const authOptions = {
 
   pages: {
     // signIn: "https://advanced-tech-virid.vercel.app/signIn",
-    signIn: "http://localhost:3000/signIn",
+    signIn: "/signIn",
   },
 };
 export const handler = NextAuth(authOptions);

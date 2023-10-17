@@ -1,13 +1,10 @@
 "use client";
-import {
-  GiBigDiamondRing,
-  GiJewelCrown,
-  GiPerfumeBottle,
-} from "react-icons/gi";
+import { GiBigDiamondRing, GiJewelCrown } from "react-icons/gi";
 import {
   PiShoppingCartThin,
   PiGiftThin,
   PiHeartStraightLight,
+  PiUserBold,
 } from "react-icons/pi";
 import { BsSearch } from "react-icons/bs";
 import React from "react";
@@ -40,6 +37,7 @@ import {
   AiOutlineUser,
   AiOutlineSetting,
   AiOutlinePoweroff,
+  AiOutlineLogin,
 } from "react-icons/ai";
 import { CgSmartphoneRam } from "react-icons/cg";
 import { ImPower } from "react-icons/im";
@@ -48,7 +46,7 @@ import { MdOutlineDevicesOther } from "react-icons/md";
 import { LuHardDrive } from "react-icons/lu";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
+import { signOut, signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 
 const colors = {
@@ -240,6 +238,7 @@ function ProfileMenu() {
   const closeMenu = () => setIsMenuOpen(false);
 
   const { data: session } = useSession();
+  console.log(session);
 
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -249,13 +248,17 @@ function ProfileMenu() {
           color="blue-gray"
           className="rounded-full p-0 m-0 hover:opacity-50"
         >
-          <Avatar
-            variant="circular"
-            size="sm"
-            alt="logged in user"
-            className="border border-gray-900 p-0.5"
-            src={session?.user?.image!}
-          />
+          {session?.user?.image ? (
+            <Avatar
+              variant="circular"
+              size="sm"
+              alt="logged in user"
+              className=""
+              src={session?.user?.image && session?.user?.image!}
+            />
+          ) : (
+            <PiUserBold />
+          )}
         </Button>
       </MenuHandler>
       <MenuList className="p-1">
@@ -328,6 +331,51 @@ export function Header() {
         <div className="hidden gap-2 lg:flex items-center">
           {/*  */}
 
+          <div className="ml-auto flex justify-center items-center gap-1 md:mr-4">
+            <IconButton variant="text" color="blue-gray">
+              <BsSearch onClick={handleOpen} className="h-6 w-6" />
+              <Dialog size="xs" open={open} handler={handleOpen}>
+                <DialogBody>
+                  <div className="relative flex w-full gap-2">
+                    <Input
+                      type="search"
+                      label="Type here.."
+                      className="pr-20"
+                      containerProps={{
+                        className: "w-full",
+                      }}
+                      crossOrigin={undefined}
+                    />
+                    <Button
+                      size="sm"
+                      className="!absolute right-1 top-1 rounded"
+                    >
+                      Search
+                    </Button>
+                  </div>
+                </DialogBody>
+              </Dialog>
+            </IconButton>
+            <IconButton variant="text" color="blue-gray">
+              <PiHeartStraightLight className="h-5 w-5" />
+            </IconButton>
+            <IconButton variant="text" color="blue-gray">
+              <PiShoppingCartThin className="h-5 w-5" />
+            </IconButton>
+            {session?.user?.email ? (
+              <ProfileMenu />
+            ) : (
+              <IconButton
+                variant="text"
+                color="blue-gray"
+                onClick={() => signIn()}
+              >
+                <AiOutlineLogin className="h-5 w-5" />
+              </IconButton>
+            )}
+          </div>
+        </div>
+        <div className="flex lg:hidden">
           <div className="ml-auto flex gap-1 md:mr-4">
             <IconButton variant="text" color="blue-gray">
               <BsSearch onClick={handleOpen} className="h-6 w-6" />
@@ -360,37 +408,34 @@ export function Header() {
               <PiShoppingCartThin className="h-5 w-5" />
             </IconButton>
           </div>
-        </div>
-        <div className="flex lg:hidden">
+
           <IconButton
             variant="text"
             color="blue-gray"
             onClick={() => setOpenNav(!openNav)}
           >
             {openNav ? (
-              <RxCross1 className="h-6 w-6" strokeWidth={2} />
+              <RxCross1 className="h-5 w-5" />
             ) : (
-              <RxHamburgerMenu className="h-6 w-6" strokeWidth={2} />
+              <RxHamburgerMenu className="h-5 w-5" />
             )}
           </IconButton>
-          {session?.user?.email && <ProfileMenu />}
+
+          {session?.user?.email ? (
+            <ProfileMenu />
+          ) : (
+            <IconButton
+              variant="text"
+              color="blue-gray"
+              onClick={() => signIn()}
+            >
+              <AiOutlineLogin className="h-5 w-5" />
+            </IconButton>
+          )}
         </div>
       </div>
       <Collapse open={openNav}>
         <NavList />
-        {/*  */}
-
-        <div className="ml-auto flex gap-1 md:mr-4">
-          <IconButton variant="text" color="blue-gray">
-            <BsSearch className="h-5 w-5" />
-          </IconButton>
-          <IconButton variant="text" color="blue-gray">
-            <PiHeartStraightLight className="h-5 w-5" />
-          </IconButton>
-          <IconButton variant="text" color="blue-gray">
-            <PiShoppingCartThin className="h-5 w-5" />
-          </IconButton>
-        </div>
       </Collapse>
     </Navbar>
   );

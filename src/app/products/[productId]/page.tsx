@@ -56,3 +56,6 @@ const ProductDetails = ({ params }: any) => {
 };
 
 export default ProductDetails;
+
+
+

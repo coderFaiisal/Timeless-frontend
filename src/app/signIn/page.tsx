@@ -1,10 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import logo from "../../public/logo.png";
+import logo from "../../../public/logo.png";
 import { BsGoogle, BsGithub } from "react-icons/bs";
 import { Button } from "@material-tailwind/react";
-import { BsArrowCounterclockwise } from "react-icons/bs";
+import { FaClockRotateLeft } from "react-icons/fa6";
 
 const SignIn = () => {
   return (
@@ -50,11 +52,11 @@ const SignIn = () => {
             <div className="mt-10 flex justify-center items-center text-sm">
               <Link
                 href="/"
-                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                className="font-semibold leading-6 text-blue-700 hover:text-blue-500"
               >
                 <p>Back To Home</p>
               </Link>
-              <BsArrowCounterclockwise className="w-8 text-blue-700" />
+              <FaClockRotateLeft className="w-8 text-blue-700" />
             </div>
           </div>
         </div>
