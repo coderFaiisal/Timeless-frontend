@@ -26,10 +26,12 @@ export default async function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body className={`${inter.className}  scrollbar-hide`}>
+        <body
+          className={`${inter.className}  scrollbar-hide max-w-7xl mx-auto`}
+        >
           <SessionProvider session={session}>
             <Header />
-            <div className="max-w-7xl mx-auto">{children}</div>
+            <div className="min-h-screen">{children}</div>
             <Footer />
             <ToastContainer
               position="top-right"

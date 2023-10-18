@@ -10,8 +10,6 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 
-import { BiLeftArrow } from "react-icons/bi";
-
 const filtersData = [
   {
     id: 1,
@@ -110,10 +108,6 @@ export default function Products() {
     setSearchTerm(e.target.value);
   };
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   return (
     <div className="grid grid-cols-12 mx-auto relative px-10 xl:px-20 pt-5">
       <div className="col-span-3 z mr-10 space-y-5 border rounded-2xl border-gray-200/80 p-4 self-start sticky top-[84px] h-[calc(100vh-100px)]">
@@ -205,7 +199,11 @@ export default function Products() {
       ) : (
         <div className="col-span-9 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-4 2xl:gap-24 pb-20">
           {data?.data?.map((product: any) => (
-            <ProductCard key={product?._id} product={product} />
+            <ProductCard
+              key={product?._id}
+              isLoading={isLoading}
+              product={product}
+            />
           ))}
         </div>
       )}

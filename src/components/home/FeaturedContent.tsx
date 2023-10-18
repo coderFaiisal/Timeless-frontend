@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/navigation";
+import Link from "next/link";
 import featureImg1 from "../../../public/feature-img1.jpg";
 import featureImg2 from "../../../public/feature-img2.jpg";
 import featureImg3 from "../../../public/feature-img3.jpg";
@@ -41,7 +41,12 @@ const FeaturedContent = () => {
       {contents.map((content) => (
         <div key={content?.title} className="relative">
           <div className="">
-            <Image src={content?.image} alt="feature image" width={500} height={500} />
+            <Image
+              src={content?.image}
+              alt="feature image"
+              width={500}
+              height={500}
+            />
           </div>
           <div className="absolute right-4 md:right-2 lg:right-5 top-10 z-50">
             <h2 className="text-xs lg:text-md font-semibold opacity-30">
@@ -50,9 +55,11 @@ const FeaturedContent = () => {
             <h1 className="text-sm lg:text-xl py-2 font-semibold ">
               {content?.description}
             </h1>
-            <p className="text-sm lg:text-lg text-center p-1 mt-2 lg:mt-6">
-              Shop Now
-            </p>
+            <Link href="/shop">
+              <p className="text-sm lg:text-lg text-center p-1 mt-2 lg:mt-6 cursor-pointer hover:text-indigo-600 underline underline-offset-4">
+                Shop Now
+              </p>
+            </Link>
           </div>
         </div>
       ))}

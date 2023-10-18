@@ -10,7 +10,7 @@ import Link from "next/link";
 import Loader from "../shared/Loader";
 import { Button } from "@material-tailwind/react";
 
-const ProductCard = ({ product }: any) => {
+const ProductCard = ({ product, isLoading }: any) => {
   const { user } = useAppSelector((state) => state.user);
 
   //wish list functionality
@@ -49,6 +49,11 @@ const ProductCard = ({ product }: any) => {
   const handleRemoveFromWishList = () => {
     deleteWishlist(product._id);
   };
+
+
+  if(isLoading){
+    return <Loader/>
+  }
 
   return (
     <div className={`card bg-base-100 shadow-xl cursor-pointer relative`}>

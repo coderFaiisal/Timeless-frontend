@@ -64,56 +64,56 @@ const navListMenuItems = [
   {
     color: "blue",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: BsFillCpuFill,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "pink",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: FiMonitor,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "green",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: BsFillMotherboardFill,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "teal",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: LuHardDrive,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "orange",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: CgSmartphoneRam,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "cyan",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: BsBuildingAdd,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "red",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: ImPower,
     description: "Learn about our story and our mission statement.",
   },
   {
     color: "purple",
     name: "dummy",
-    link: "",
+    link: "/love&engage/dummy",
     icon: MdOutlineDevicesOther,
     description: "Learn about our story and our mission statement.",
   },
@@ -200,14 +200,14 @@ function NavListMenu() {
 function NavList() {
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
-      <Link href="/allProducts">
+      <Link href="/shop">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
           <HiOutlineQueueList className="h-[18px] w-[18px]" />
           SHOP
         </ListItem>
       </Link>
 
-      <Link href="/">
+      <Link href="/jewellery">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
           <GiJewelCrown className="h-[18px] w-[18px]" />
           JEWELLERY
@@ -216,13 +216,13 @@ function NavList() {
 
       <NavListMenu />
 
-      <Link href="/products">
+      <Link href="/watches">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
           <IoWatchOutline className="h-[18px] w-[18px]" />
           WATCHES
         </ListItem>
       </Link>
-      <Link href="/products">
+      <Link href="/gifts">
         <ListItem className="flex items-center gap-2 py-2 pr-4 font-normal text-sm blue-gray">
           <PiGiftThin className="h-[18px] w-[18px]" />
           GIFTS
