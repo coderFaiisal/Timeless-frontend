@@ -2,10 +2,6 @@ import Providers from "@/lib/Providers";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { getServerSession } from "next-auth";
-import SessionProvider from "@/lib/SessionProvider";
-import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -22,23 +18,18 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
   return (
     <Providers>
       <html lang="en">
         <body
           className={`${inter.className}  scrollbar-hide max-w-7xl mx-auto`}
         >
-          <SessionProvider session={session}>
-            <Header />
-            <div className="min-h-screen">{children}</div>
-            <Footer />
-            <ToastContainer
-              position="top-right"
-              autoClose={3000}
-              theme="colored"
-            />
-          </SessionProvider>
+          <div className="min-h-screen">{children}</div>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            theme="colored"
+          />
         </body>
       </html>
     </Providers>

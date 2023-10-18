@@ -23,7 +23,6 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
-  Avatar,
   Input,
 } from "@material-tailwind/react";
 import { HiChevronDown, HiOutlineQueueList } from "react-icons/hi2";
@@ -44,6 +43,7 @@ import { ImPower } from "react-icons/im";
 import { FiMonitor } from "react-icons/fi";
 import { MdOutlineDevicesOther } from "react-icons/md";
 import { LuHardDrive } from "react-icons/lu";
+import { RxDashboard } from "react-icons/rx";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
 import Image from "next/image";
@@ -257,12 +257,20 @@ function ProfileMenu() {
           color="blue-gray"
           className="rounded-full p-2 bg-black text-white m-0 hover:opacity-90"
         >
-         
-            <PiUserBold className="h-5 w-5" />
-     
+          <PiUserBold className="h-5 w-5" />
         </Button>
       </MenuHandler>
       <MenuList className="p-1">
+        <MenuItem className={`flex items-center gap-2 rounded`}>
+          {React.createElement(RxDashboard, {
+            className: `h-4 w-4`,
+            strokeWidth: 2,
+          })}
+          <Typography as="span" variant="small" className="font-normal">
+            Dashboard
+          </Typography>
+        </MenuItem>
+
         <MenuItem className={`flex items-center gap-2 rounded`}>
           {React.createElement(AiOutlineUser, {
             className: `h-4 w-4`,
@@ -303,7 +311,7 @@ function ProfileMenu() {
 export function Header() {
   const [openNav, setOpenNav] = React.useState(false);
 
-  const { user } = useAppSelector((state) => state.user);
+  const {user} = useAppSelector((state) => state.user);
 
   const [open, setOpen] = React.useState(false);
 

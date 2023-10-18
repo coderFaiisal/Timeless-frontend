@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const TopProducts = async () => {
   const res = await fetch(
@@ -17,19 +18,21 @@ const TopProducts = async () => {
       <div className="grid grid-cols-2  lg:grid-cols-4 gap-4 w-11/12 mx-auto mt-10">
         {data?.data?.slice(0, 10)?.map((product: any) => (
           <div key={product?._id}>
-            <div className="">
-              <Image
-                src={product?.photoURL}
-                alt="feature image"
-                className="h-40 lg:h-56"
-                width={500}
-                height={400}
-              />
-            </div>
-            <div className="mt-2 text-center">
-              <h1 className="text-sm opacity-60">{product?.name}</h1>
-              <p>$ {product?.price}</p>
-            </div>
+            <Link href={`/products/${product?._id}`}>
+              <div className="">
+                <Image
+                  src={product?.photoURL}
+                  alt="feature image"
+                  className="h-40 lg:h-56"
+                  width={500}
+                  height={400}
+                />
+              </div>
+              <div className="mt-2 text-center">
+                <h1 className="text-sm opacity-60">{product?.name}</h1>
+                <p>$ {product?.price}</p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>

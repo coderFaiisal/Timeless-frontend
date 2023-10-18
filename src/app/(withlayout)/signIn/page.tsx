@@ -48,7 +48,7 @@ const SignIn = () => {
     }
     if (data?.data?.accessToken) {
       notify("success", "User logging successfully");
-      redirect("/");
+      redirect("/profile");
     }
   }, [data, error, isLoggedIn]);
 

@@ -48,7 +48,7 @@ export default function Products() {
   //   if (!isLoggedIn) {
   //     router.push("/signIn");
   //   }
-  // }, [router]);
+  // }, [isLoggedIn]);
 
   const [open, setOpen] = useState(0);
 
@@ -116,6 +116,7 @@ export default function Products() {
   };
 
   return (
+    
     <div className="grid grid-cols-12 mx-auto justify-center items-center relative px-10 xl:px-20 pt-5">
       <div className="col-span-12 md:col-span-3 z mr-10 space-y-5 border rounded-2xl border-gray-200/80 p-4 self-start lg:sticky top-[84px] md:h-[calc(100vh-100px)]">
         {/* Search form */}

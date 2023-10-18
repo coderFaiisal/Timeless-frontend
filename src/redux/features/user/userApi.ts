@@ -23,10 +23,10 @@ const userApi = api.injectEndpoints({
           localStorage.setItem(
             "user",
             JSON.stringify({
-              accessToken: result.data.data.accessToken,
+              accessToken: result?.data?.data?.accessToken,
             })
           );
-          dispatch(userLoggedIn(result.data.data.accessToken));
+          dispatch(userLoggedIn(result?.data?.data?.accessToken));
         } catch (error) {
           console.log(error);
         }

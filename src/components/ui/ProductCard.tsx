@@ -9,12 +9,17 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import Loader from "../shared/Loader";
-import { Rating } from "@smastrom/react-rating";
+import { Rating, ThinStar } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
 
 const ProductCard = ({ product, isLoading }: any) => {
   const { user } = useAppSelector((state) => state.user);
+
+  const myStyles = {
+    itemShapes: ThinStar,
+    inactiveFillColor: "#ffb700",
+  };
 
   //wish list functionality
   const { data: wishData } = useGetSingleWishListsQuery(product?._id);
@@ -108,8 +113,12 @@ const ProductCard = ({ product, isLoading }: any) => {
             </span>
             {/* <span className="text-sm text-slate-900 line-through">$99</span> */}
           </p>
-
-          <Rating className="flex text-xs" value={product?.ratings} />
+          <Rating
+            className="flex"
+            value={product?.ratings}
+            itemStyles={myStyles}
+            style={{ maxWidth: 100 }}
+          />
         </div>
         <button className="flex items-center justify-center bg-gray-900 px-2 py-1 text-sm text-white transition hover:bg-gray-700">
           <svg
