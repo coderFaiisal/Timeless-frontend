@@ -1,73 +1,80 @@
 "use client";
 
-import Loader from "@/components/shared/Loader";
+import CustomBreadcrumb from "@/components/ui/CustomBreadcrumb";
+import { Pagination } from "@/components/ui/Pagination";
 import ProductCard from "@/components/ui/ProductCard";
+import useAuth from "@/hooks/useAuth";
 import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const filtersData = [
   {
     id: 1,
-    title: "Genre",
-    options: [
-      "Computer and Programming",
-      "Motivational",
-      "Self-Development",
-      "Fiction",
-      "Islamic",
-      "Fantasy romance",
-      "Science Fiction",
-      "Novels",
-      "Liberation War",
-      "Story",
-      "Romantic, Novels",
-      "Poetry",
-      "Essay",
-    ],
+    title: "Category",
+    options: ["Bracelets", "Rings", "Earrings", "Necklaces"],
   },
   {
     id: 2,
-    title: "Publication Year",
+    title: "Status",
+    options: ["stock", "stock out"],
+  },
+  {
+    id: 3,
+    title: "Materials",
     options: [
-      "2022",
-      "2018",
-      "2017",
-      "2016",
-      "2009",
-      "2008",
-      "1998",
-      "1995",
-      "1985",
-      "1976",
-      "1948",
-      "1935",
-      "1929",
-      "1922",
-      "1920",
-      "1903",
-      "1866",
+      "18k Yellow Gold, Emeralds",
+      "14k White Gold, Sapphires",
+      "Sterling Silver, Freshwater Pearls",
     ],
+  },
+  {
+    id: 4,
+    title: "Discounts",
+    options: ["5%", "10%", "15%", "20%", "25%", "30%", "40%", "50%"],
   },
 ];
 
 export default function Products() {
+  const isLoggedIn = useAuth();
+  const router = useRouter();
+
+  // useEffect(() => {
+  //   if (!isLoggedIn) {
+  //     router.push("/signIn");
+  //   }
+  // }, [router]);
+
   const [open, setOpen] = useState(0);
 
   const handleOpen = (value: any) => setOpen(open === value ? 0 : value);
 
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [genre, setGenre] = useState<string>("");
-  const [publicationYear, setPublicationYear] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
+  const [materials, setMaterials] = useState<string>("");
+  const [discounts, setDiscounts] = useState<string>("");
+
+  const [page, setPage] = useState<number>(1);
+  const [size, setSize] = useState<number>(10);
+  const [sortBy, setSortBy] = useState<string>("");
+  const [sortOrder, setSortOrder] = useState<string>("");
 
   const { data, isLoading } = useGetAllProductsQuery({
     searchTerm,
-    genre,
-    publicationYear,
+    category,
+    status,
+    materials,
+    discounts,
+    size,
+    page,
+    sortBy,
+    sortOrder,
   });
 
   const debounce = <T extends (...args: any[]) => void>(
@@ -109,8 +116,8 @@ export default function Products() {
   };
 
   return (
-    <div className="grid grid-cols-12 mx-auto relative px-10 xl:px-20 pt-5">
-      <div className="col-span-3 z mr-10 space-y-5 border rounded-2xl border-gray-200/80 p-4 self-start sticky top-[84px] h-[calc(100vh-100px)]">
+    <div className="grid grid-cols-12 mx-auto justify-center items-center relative px-10 xl:px-20 pt-5">
+      <div className="col-span-12 md:col-span-3 z mr-10 space-y-5 border rounded-2xl border-gray-200/80 p-4 self-start lg:sticky top-[84px] md:h-[calc(100vh-100px)]">
         {/* Search form */}
         <div className="mb-5">
           <form className="relative">
@@ -161,19 +168,28 @@ export default function Products() {
                         <label className="flex items-center cursor-pointer">
                           <input
                             checked={
-                              (fd.title === "Genre" && genre === o) ||
-                              (fd.title === "Publication Year" &&
-                                publicationYear === o)
+                              (fd.title === "Category" && category === o) ||
+                              (fd.title === "Status" && status === o) ||
+                              (fd.title === "Materials" && materials === o) ||
+                              (fd.title === "Discounts" && discounts === o)
                             }
                             onChange={(e) => {
                               if (e.target.checked) {
-                                fd.title === "Genre"
-                                  ? setGenre(o)
-                                  : setPublicationYear(o);
+                                fd.title === "Category"
+                                  ? setCategory(o)
+                                  : fd.title === "Status"
+                                  ? setStatus(o)
+                                  : fd.title === "Materials"
+                                  ? setMaterials(o)
+                                  : setDiscounts(o);
                               } else {
-                                fd.title === "Genre"
-                                  ? setGenre("")
-                                  : setPublicationYear("");
+                                fd.title === "Category"
+                                  ? setCategory("")
+                                  : fd.title === "Status"
+                                  ? setStatus("")
+                                  : fd.title === "Materials"
+                                  ? setMaterials("")
+                                  : setDiscounts("");
                               }
                             }}
                             type="checkbox"
@@ -192,21 +208,39 @@ export default function Products() {
           </div>
         </div>
       </div>
-      {data?.length === 0 ? (
-        <p className="col-span-9 text-2xl my-32 font-semibold text-center">
-          There is no Product!
-        </p>
-      ) : (
-        <div className="col-span-9 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-4 2xl:gap-24 pb-20">
-          {data?.data?.map((product: any) => (
-            <ProductCard
-              key={product?._id}
-              isLoading={isLoading}
-              product={product}
-            />
-          ))}
+
+      <div className="col-span-12 md:col-span-9 ">
+        <div className="my-1 flex gap-2 items-center">
+          <CustomBreadcrumb
+            items={[
+              {
+                label: "shop",
+                link: "/shop",
+              },
+            ]}
+          />
+
+          <p className="text-sm"> Total Products Found: {data?.meta?.total}</p>
         </div>
-      )}
+        {data?.length === 0 ? (
+          <p className="text-2xl my-32 font-semibold text-center">
+            There is no Product!
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 xl:gap-4 2xl:gap-24 lg:pb-20 min-h-screen">
+            {data?.data?.map((product: any) => (
+              <ProductCard
+                key={product?._id}
+                isLoading={isLoading}
+                product={product}
+              />
+            ))}
+          </div>
+        )}
+        <div className="flex justify-center">
+          <Pagination setPage={setPage} />
+        </div>
+      </div>
     </div>
   );
 }

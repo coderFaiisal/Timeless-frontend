@@ -46,8 +46,10 @@ import { MdOutlineDevicesOther } from "react-icons/md";
 import { LuHardDrive } from "react-icons/lu";
 import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
-import { signOut, signIn, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { notify } from "../ui/Toastify";
+import { userLoggedOut } from "@/redux/features/user/userSlice";
 
 const colors = {
   blue: "bg-blue-50 text-blue-500",
@@ -237,8 +239,15 @@ function ProfileMenu() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const { data: session } = useSession();
-  console.log(session);
+  const { user } = useAppSelector((state) => state.user);
+
+  const dispatch = useAppDispatch();
+
+  const handleSignOut = () => {
+    dispatch(userLoggedOut());
+    localStorage.clear();
+    notify("success", "User logout successfully");
+  };
 
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -246,19 +255,11 @@ function ProfileMenu() {
         <Button
           variant="text"
           color="blue-gray"
-          className="rounded-full p-0 m-0 hover:opacity-50"
+          className="rounded-full p-2 bg-black text-white m-0 hover:opacity-90"
         >
-          {session?.user?.image ? (
-            <Avatar
-              variant="circular"
-              size="sm"
-              alt="logged in user"
-              className=""
-              src={session?.user?.image && session?.user?.image!}
-            />
-          ) : (
-            <PiUserBold />
-          )}
+         
+            <PiUserBold className="h-5 w-5" />
+     
         </Button>
       </MenuHandler>
       <MenuList className="p-1">
@@ -283,7 +284,7 @@ function ProfileMenu() {
         </MenuItem>
 
         <MenuItem
-          onClick={() => signOut({ callbackUrl: "http://localhost:3000" })}
+          onClick={handleSignOut}
           className={`flex items-center gap-2 rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10`}
         >
           {React.createElement(AiOutlinePoweroff, {
@@ -301,7 +302,8 @@ function ProfileMenu() {
 
 export function Header() {
   const [openNav, setOpenNav] = React.useState(false);
-  const { data: session } = useSession();
+
+  const { user } = useAppSelector((state) => state.user);
 
   const [open, setOpen] = React.useState(false);
 
@@ -362,16 +364,14 @@ export function Header() {
             <IconButton variant="text" color="blue-gray">
               <PiShoppingCartThin className="h-5 w-5" />
             </IconButton>
-            {session?.user?.email ? (
+            {user?.email ? (
               <ProfileMenu />
             ) : (
-              <IconButton
-                variant="text"
-                color="blue-gray"
-                onClick={() => signIn()}
-              >
-                <AiOutlineLogin className="h-5 w-5" />
-              </IconButton>
+              <Link href="/signIn">
+                <IconButton variant="text" color="blue-gray">
+                  <AiOutlineLogin className="h-5 w-5" />
+                </IconButton>
+              </Link>
             )}
           </div>
         </div>
@@ -421,16 +421,14 @@ export function Header() {
             )}
           </IconButton>
 
-          {session?.user?.email ? (
+          {user?.email ? (
             <ProfileMenu />
           ) : (
-            <IconButton
-              variant="text"
-              color="blue-gray"
-              onClick={() => signIn()}
-            >
-              <AiOutlineLogin className="h-5 w-5" />
-            </IconButton>
+            <Link href="/signIn">
+              <IconButton variant="text" color="blue-gray">
+                <AiOutlineLogin className="h-5 w-5" />
+              </IconButton>
+            </Link>
           )}
         </div>
       </div>

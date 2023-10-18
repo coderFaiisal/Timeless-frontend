@@ -5,7 +5,7 @@ const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
     createUser: builder.mutation({
       query: (data) => ({
-        url: "/users/create-user",
+        url: "auth/signUp",
         method: "POST",
         body: data,
       }),
@@ -13,7 +13,7 @@ const userApi = api.injectEndpoints({
 
     loginUser: builder.mutation({
       query: (data) => ({
-        url: "/users/login",
+        url: "auth/signIn",
         method: "POST",
         body: data,
       }),
@@ -35,7 +35,7 @@ const userApi = api.injectEndpoints({
 
     getAccessToken: builder.mutation({
       query: () => ({
-        url: "/users/refreshToken",
+        url: "auth/refresh-token ",
         method: "POST",
       }),
     }),

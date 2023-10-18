@@ -1,5 +1,6 @@
 "use client";
 
+import { PiUserBold } from "react-icons/pi";
 import { useAddReviewMutation } from "@/redux/features/product/productApi";
 import { useAppSelector } from "@/redux/hook";
 import Image from "next/image";
@@ -38,7 +39,7 @@ export default function ProductReview({ id, reviews }: any) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mt-10">
+    <div className="max-w-7xl mx-auto">
       <form className="flex gap-5 items-center" onSubmit={handleSubmit}>
         <Textarea
           label="Add Review"
@@ -57,14 +58,8 @@ export default function ProductReview({ id, reviews }: any) {
       <div className="mt-10">
         {reviews?.map((review: any) => (
           <div key={review?._id} className="flex gap-3 items-center mb-5">
-            <div className="w-8 md:w-12 h-8 md:h-12 ">
-              <Image
-                src=""
-                alt="avatar"
-                className="rounded-full"
-                width={500}
-                height={500}
-              />
+            <div className="flex items-center justify-center">
+              <PiUserBold className="w-6 md:w-6 h-4 md:h-6 " />
             </div>
             <div>
               <p className="font-semibold text-xs md:text-lg">

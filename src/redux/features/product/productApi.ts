@@ -21,13 +21,44 @@ const productApi = api.injectEndpoints({
     }),
 
     getAllProducts: builder.query({
-      query: ({ searchTerm, title }) => {
-        let queryString = `/products?limit=40`;
+      query: ({
+        searchTerm,
+        category,
+        status,
+        materials,
+        discounts,
+        size,
+        page,
+        sortBy,
+        sortOrder,
+      }) => {
+        let queryString = `/products?limit=10`;
         if (searchTerm && searchTerm.length > 0) {
           queryString += `&searchTerm=${searchTerm}`;
         }
-        if (title && title.length > 0) {
-          queryString += `&title=${title}`;
+        if (category && category.length > 0) {
+          queryString += `&category=${category}`;
+        }
+        if (status && status.length > 0) {
+          queryString += `&status=${status}`;
+        }
+        if (materials && materials.length > 0) {
+          queryString += `&materials=${materials}`;
+        }
+        if (discounts && discounts.length > 0) {
+          queryString += `&discounts=${discounts}`;
+        }
+        if (size && size > 0) {
+          queryString += `&size=${size}`;
+        }
+        if (page && page > 0) {
+          queryString += `&page=${page}`;
+        }
+        if (sortBy && sortBy.length > 0) {
+          queryString += `&sortBy=${sortBy}`;
+        }
+        if (sortOrder && sortOrder.length > 0) {
+          queryString += `&sortOrder=${sortBy}`;
         }
         return queryString;
       },

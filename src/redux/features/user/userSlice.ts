@@ -5,6 +5,7 @@ export interface IAuthState {
   accessToken: string | undefined;
   user:
     | {
+        photoURL: any;
         _id?: string;
         name: string;
         email: string;

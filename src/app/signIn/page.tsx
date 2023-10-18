@@ -1,67 +1,123 @@
 "use client";
 
-import Image from "next/image";
+import { notify } from "@/components/ui/Toastify";
+import useAuth from "@/hooks/useAuth";
+import { useLoginUserMutation } from "@/redux/features/user/userApi";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Input,
+  Checkbox,
+  Button,
+} from "@material-tailwind/react";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
-import logo from "../../../public/logo.png";
-import { BsGoogle, BsGithub } from "react-icons/bs";
-import { Button } from "@material-tailwind/react";
-import { FaClockRotateLeft } from "react-icons/fa6";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+
+interface LoginFormInputs {
+  email: string;
+  password: string;
+}
 
 const SignIn = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormInputs>();
+
+  const [login, { data, error }] = useLoginUserMutation();
+
+  const isLoggedIn = useAuth();
+
+  const onSubmit = (data: LoginFormInputs) => {
+    login({ email: data.email, password: data.password });
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      redirect("/");
+    }
+    if (error) {
+      notify("error", (error as any)?.data?.message);
+    }
+    if (data?.data?.accessToken) {
+      notify("success", "User logging successfully");
+      redirect("/");
+    }
+  }, [data, error, isLoggedIn]);
+
   return (
-    <>
-      <div className=" px-6 py-12 lg:px-8 border ">
-        <div className="lg:border max-w-[600px] py-12 mx-auto lg:rounded-md lg:shadow-md">
-          <div className="sm:mx-auto  sm:w-full sm:max-w-sm flex flex-col justify-start items-center ">
-            <Link href="/">
-              <div className={""}>
-                <Image src={logo} alt="Logo" height={30} width={150} />
-              </div>
-            </Link>
+    <div className="flex justify-center items-center py-12">
+      <Card className="w-96">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="mt-4 leading-6 flex flex-col justify-center items-center">
+            <p className="text-2xl font-semibold">Sign In</p>
+            <p className="text-xs">
+              Please sign in to your Timeless Account...
+            </p>
           </div>
 
-          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <Button
-              onClick={() =>
-                signIn("google", {
-                  callbackUrl:
-                    "https://advanced-tech-virid.vercel.app/pcBuilder",
-                })
-              }
-              color="blue"
-              className="flex w-full justify-center items-center my-2 "
-            >
-              <BsGoogle className="mr-2" />
-              Sign in with Google
-            </Button>
-
-            <Button
-              onClick={() =>
-                signIn("github", {
-                  callbackUrl:
-                    "https://advanced-tech-virid.vercel.app/pcBuilder",
-                })
-              }
-              className="flex w-full justify-center items-center"
-            >
-              <BsGithub className="mr-2" />
-              Sign in with Github
-            </Button>
-
-            <div className="mt-10 flex justify-center items-center text-sm">
-              <Link
-                href="/"
-                className="font-semibold leading-6 text-blue-700 hover:text-blue-500"
-              >
-                <p>Back To Home</p>
-              </Link>
-              <FaClockRotateLeft className="w-8 text-blue-700" />
+          <CardBody className="flex flex-col gap-4">
+            <Input
+              {...register("email", { required: "Email is required" })}
+              label="Email"
+              type="email"
+              size="lg"
+              crossOrigin={undefined}
+            />
+            {errors.email && (
+              <p className="text-red-500">{errors.email.message}</p>
+            )}
+            <Input
+              {...register("password", { required: "Password is required" })}
+              label="Password"
+              size="lg"
+              type="password"
+              crossOrigin={undefined}
+            />
+            {errors.password && (
+              <p className="text-red-500">{errors.password.message}</p>
+            )}
+            <div className="-ml-2.5 text-sm">
+              <Checkbox
+                onClick={() => setIsChecked(!isChecked)}
+                label="Agree terms & conditions?"
+                crossOrigin={undefined}
+              />
             </div>
-          </div>
-        </div>
-      </div>
-    </>
+          </CardBody>
+          <CardFooter className="pt-0">
+            {isChecked ? (
+              <Button type="submit" color="blue" variant="gradient" fullWidth>
+                Sign In
+              </Button>
+            ) : (
+              <Button
+                disabled
+                type="submit"
+                color="blue"
+                variant="gradient"
+                fullWidth
+              >
+                Sign In
+              </Button>
+            )}
+            <p className="mt-6 flex justify-center text-sm">
+              Don&apos;t have an account?
+              <Link href="/signUp">
+                <span className="ml-1 font-bold text-blue-500">Sign up</span>
+              </Link>
+            </p>
+          </CardFooter>
+        </form>
+      </Card>
+    </div>
   );
 };
 
